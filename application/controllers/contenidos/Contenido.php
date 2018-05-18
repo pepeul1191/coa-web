@@ -15,16 +15,29 @@ class Contenido extends CI_Controller
     $data_top = array(
       'mensaje' => false,
       'titulo_pagina' => 'Gestión de Contenidos',
-      'modulo' => 'Accesos',
-      'title' => 'Home',
+      'title' => 'Contenidos',
       'csss' => index_css($this->config),
       'jss' => index_js($this->config),
-      'menu' => '[{"url" : "accesos", "nombre" : "Accesos"},{"url" : "libros", "nombre" : "Libros"}]',
-      'items' => '[{"subtitulo":"","items":[{"item":"Gestión de Sistemas","url":"accesos/#/sistema"},{"item":"Gestión de Usuarios","url":"accesos/#/usuario"}]}]',
+      'menu' => json_encode(array(
+        0 => array('url' => 'accesos', 'nombre' => 'Accesos'),
+        1 => array('url' => 'contenidos', 'nombre' => 'Contenidos'),
+      )),
+      'items' => json_encode(array(
+         0 => array('subtitulo' => 'Sedes y Doctores', 'items' => array(
+           0 => array('item' => 'Gestión de Especialidades', 'url' => 'contenidos/#/especialidad'),
+           1 => array('item' => 'Gestión de Sedes', 'url' => 'contenidos/#/sede'),
+           2 => array('item' => 'Gestión de Doctores', 'url' => 'contenidos/#/doctor'),
+         )),
+         1 => array('subtitulo' => 'Otros', 'items' => array(
+           0 => array('item' => 'Slider', 'url' => 'contenidos/#/slider'),
+           1 => array('item' => 'Servicios', 'url' => 'contenidos/#/servicio'),
+         ),
+       ),
+      )),
       'data' => json_encode(array(
         'mensaje' => false,
         'titulo_pagina' => 'Gestión de Accesos',
-        'modulo' => 'Libros'
+        'modulo' => 'Contenidos'
       )),
     );
     $data_bottom = array(

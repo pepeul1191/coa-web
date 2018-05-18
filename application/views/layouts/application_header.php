@@ -58,7 +58,7 @@
     </script>
     <script id="breadcrumb-template" type="text/x-handlebars-template">
       <nav>
-        <h1><i class="fa fa-umbrella h1" aria-hidden="true"></i>Nombre de Aplicación</h1>
+        <h1><i class="fa fa-umbrella h1" aria-hidden="true"></i>Gestor de Conentidos - COA</h1>
         {{{menuModulos}}}
       </nav>
     </script>
