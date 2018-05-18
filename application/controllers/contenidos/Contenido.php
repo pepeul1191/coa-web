@@ -11,10 +11,10 @@ class Contenido extends CI_Controller
   			'received' => $this->input->method(TRUE)
   		)
   	);
-    $this->load->helper('Home');
+    $this->load->helper('Contenido');
     $data_top = array(
       'mensaje' => false,
-      'titulo_pagina' => 'Gestión de Accesos',
+      'titulo_pagina' => 'Gestión de Contenidos',
       'modulo' => 'Accesos',
       'title' => 'Home',
       'csss' => index_css($this->config),
@@ -24,16 +24,16 @@ class Contenido extends CI_Controller
       'data' => json_encode(array(
         'mensaje' => false,
         'titulo_pagina' => 'Gestión de Accesos',
-        'modulo' => 'Accesos'
+        'modulo' => 'Libros'
       )),
     );
     $data_bottom = array(
       'js_bottom' => 'dist/accesos.min.js',
     );
     $this->load->helper('View');
-    $this->load->view('layouts/blank_header', $data_top);
-    $this->load->view('home/index');
-    $this->load->view('layouts/blank_footer', $data_bottom);
+    $this->load->view('layouts/application_header', $data_top);
+    $this->load->view('contenido/index');
+    $this->load->view('layouts/application_footer', $data_bottom);
   }
 }
 
