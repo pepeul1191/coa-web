@@ -8,6 +8,14 @@ Archivo de configuración de variables:
 
     application/config/config.php
 
+Para recargar el autoload de clases:
+
+    $ composer dump-autoload -o
+
+Arancar servidor de prueba
+
+    $ php -S localhost:8000
+
 ---
 
 Fuentes:
@@ -19,3 +27,4 @@ Fuentes:
 + http://php.net/manual/es/function.array-key-exists.php
 + https://www.w3schools.com/php/php_sessions.asp
 + https://stackoverflow.com/questions/1995562/now-function-in-php
++ http://php.net/manual/es/features.commandline.webserver.php
