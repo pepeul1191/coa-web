@@ -65,3 +65,5 @@ $route['ubicaciones/distrito/buscar']['GET'] = 'ubicaciones/distrito/buscar';
 $route['ubicaciones/distrito/nombre']['GET'] = 'ubicaciones/distrito/nombre';
 $route['ubicaciones/distrito/listar/(:num)']['GET'] = 'ubicaciones/distrito/listar/$1';
 $route['ubicaciones/provincia/listar/(:num)']['GET'] = 'ubicaciones/provincia/listar/$1';
+# cms
+$route['contenidos']['GET'] = 'contenidos/contenido/index';
