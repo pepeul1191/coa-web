@@ -4,6 +4,8 @@ var Router = Marionette.AppRouter.extend({
       "" : "index",
       "especialidad": "especialidad",
       "sede": "sede",
+      "sede/doctores/:sede_id": "verSedeDoctores",
+      "sede/responsables/:sede_id": "verSedeResponsables",
       "*actions" : "index"
     },
     showEmail: function(email) {
@@ -20,6 +22,16 @@ var Router = Marionette.AppRouter.extend({
       tipoSedesCollection.llenarModels();
       sedeView.render();
       sedeView.mostrarTabla();
+    },
+    verSedeDoctores: function(sede_id) {
+      $("#btnModal").click();
+      sedeDoctorView.set("sede_id", sede_id);
+      sedeDoctorView.render();
+    },
+    verSedeResponsables: function(sede_id) {
+      $("#btnModal").click();
+      sedeResponsableView.set("sede_id", sede_id);
+      sedeResponsableView.render();
     },
     index: function() {
         // show the email

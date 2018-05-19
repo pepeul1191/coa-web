@@ -11,8 +11,10 @@ var SedeView = Backbone.View.extend({
 		"click #tablaSede > tfoot > tr > td > button.agregar-fila": "agregarFila",
 		"click #tablaSede > tfoot > tr > td > button.guardar-tabla": "guardarTabla",
 		"keyup #tablaSede > tbody > tr > td > input.text": "inputTextEscribir",
-		"click #tablaSede > tbody > tr > td > i.quitar-fila": "quitarFila",
 		"change #tablaSede > tbody > tr > td > select": "cambiarSelect",
+		"click #tablaSede > tbody > tr > td > i.quitar-fila": "quitarFila",
+		"click #tablaSede > tbody > tr > td > i.ver-doctores": "verDoctores",
+		"click #tablaSede > tbody > tr > td > i.ver-responsables": "verResponsables",
 	},
 	render: function() {
 		this.$el.html(this.getTemplate());

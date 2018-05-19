@@ -53,10 +53,24 @@ var paramsSedeTable = {
   },
   filaBotones: [
     {
+      tipo: "href",
+      claseOperacion: "ver-doctores",
+      clase: "fa-users",
+      estilos: "padding-left: 7px;",
+      url: BASE_URL + 'contenidos/#/sede/doctores/'/*+ sede_id*/,
+    },
+    {
+      tipo: "href",
+      claseOperacion: "ver-responsables",
+      clase: "fa-user-md",
+      estilos: "padding-left: 7px;",
+      url: BASE_URL + 'contenidos/#/sede/responsables/'/*+ sede_id*/,
+    },
+    {
       tipo: "i",
       claseOperacion: "quitar-fila",
       clase: "fa-times",
-      estilos: "padding-left: 15px;",
+      estilos: "padding-left: 7px;",
     },
   ],
   collection: new SedesCollection(),
