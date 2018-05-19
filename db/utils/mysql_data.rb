@@ -10,6 +10,8 @@ class Especialidad < Sequel::Model(DB[:tb_especialidad])
 end
 class Sede < Sequel::Model(DB[:tb_sede])
 end
+class Doctor < Sequel::Model(DB[:tb_doctor])
+end
 
 # métodos de lectura
 
@@ -28,4 +30,11 @@ def listar_sedes
   end
 end
 
-listar_sedes
+def listar_doctores
+  doctores = Doctor.order(:id).all.to_a
+  doctores.each do |doctor|
+    puts doctor.id.to_s + '::' + doctor.nombre  + '::' + doctor.paterno  + '::' + doctor.materno  + '::' + doctor.cop.to_s  + '::' + doctor.id_sede.to_s + '::' + doctor.id_especialidad.to_s + '::' + doctor.id_sexo.to_s
+  end
+end
+
+listar_doctores
