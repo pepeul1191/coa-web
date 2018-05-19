@@ -54,7 +54,7 @@ Tipos de Datos de Columnas
 
 Correr migración a SQLite3
 
-    sequel -m db/migrations -M 2 sqlite://db/coa.db
+    $ sequel -m db/migrations -M 4 sqlite://db/coa.db
 
 
 ---
