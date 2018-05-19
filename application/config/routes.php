@@ -68,3 +68,4 @@ $route['ubicaciones/provincia/listar/(:num)']['GET'] = 'ubicaciones/provincia/li
 # cms
 $route['contenidos']['GET'] = 'contenidos/contenido/index';
 $route['contenidos/especialidad/listar']['GET'] = 'contenidos/especialidad/listar';
+$route['contenidos/especialidad/guardar']['POST'] = 'contenidos/especialidad/guardar';
