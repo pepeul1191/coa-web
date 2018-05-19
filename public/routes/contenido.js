@@ -3,6 +3,7 @@ var Router = Marionette.AppRouter.extend({
       'email/:email': 'showEmail',
       "" : "index",
       "especialidad": "especialidad",
+      "sede": "sede",
       "*actions" : "index"
     },
     showEmail: function(email) {
@@ -13,6 +14,12 @@ var Router = Marionette.AppRouter.extend({
       var especialidadView = new EspecialidadView({});
       especialidadView.render();
       especialidadView.mostrarTabla();
+    },
+    sede: function() {
+      var sedeView = new SedeView({});
+      tipoSedesCollection.llenarModels();
+      sedeView.render();
+      sedeView.mostrarTabla();
     },
     index: function() {
         // show the email

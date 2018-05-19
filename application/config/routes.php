@@ -69,3 +69,6 @@ $route['ubicaciones/provincia/listar/(:num)']['GET'] = 'ubicaciones/provincia/li
 $route['contenidos']['GET'] = 'contenidos/contenido/index';
 $route['contenidos/especialidad/listar']['GET'] = 'contenidos/especialidad/listar';
 $route['contenidos/especialidad/guardar']['POST'] = 'contenidos/especialidad/guardar';
+$route['contenidos/sede/listar']['GET'] = 'contenidos/sede/listar';
+$route['contenidos/sede/gudardar']['POST'] = 'contenidos/sede/guardar';
+$route['contenidos/tipo_sede/listar']['GET'] = 'contenidos/tipoSede/listar';

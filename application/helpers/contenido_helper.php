@@ -44,10 +44,16 @@ if ( ! function_exists('index_js'))
           'bower_components/swp-backbone/layouts/application',
           'bower_components/swp-backbone/views/table',
           'bower_components/swp-backbone/assets/js/dashboard',
+          'models/tipo_sede',
+          'collections/tipo_sede_collection',
           'models/especialidad',
           'collections/especialidad_collection',
           'views/especialidad_table',
           'views/especialidad',
+          'models/sede',
+          'collections/sede_collection',
+          'views/sede_table',
+          'views/sede',
           'routes/contenido',
         ];
         break;
