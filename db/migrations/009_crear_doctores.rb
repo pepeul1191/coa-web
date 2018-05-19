@@ -8,7 +8,7 @@ Sequel.migration do
       String :paterno, null: false, size: 30
       String :materno, null: false, size: 30
       Integer :cop, null: false, size: 10
-      Integer :rne, null: false, size: 10
+      Integer :rne, null: true, size: 10
     end
 
     alter_table(:doctores) do
