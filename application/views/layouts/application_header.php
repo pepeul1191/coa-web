@@ -67,7 +67,7 @@
         <aside class="col-md-2">
           {{{menuSubModulos}}}
         </aside>
-        <section class="col-md-10">
+        <section class="col-md-10" id="workspace">
           <!-- Inicio Yield-->
           {{> yield}}
           <!-- Fin Yield-->
