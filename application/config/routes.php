@@ -73,6 +73,8 @@ $route['contenidos/especialidad/guardar']['POST'] = 'contenidos/especialidad/gua
 # contenidos/sede
 $route['contenidos/sede/listar']['GET'] = 'contenidos/sede/listar';
 $route['contenidos/sede/gudardar']['POST'] = 'contenidos/sede/guardar';
+# contenidos/doctor
+$route['contenidos/doctor/listar/(:num)']['GET'] = 'contenidos/doctor/sede/$1';
 # contenidos/tipo_sede
 $route['contenidos/tipo_sede/listar']['GET'] = 'contenidos/tipoSede/listar';
 # contenidos/sexo
