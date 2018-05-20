@@ -65,10 +65,15 @@ $route['ubicaciones/distrito/buscar']['GET'] = 'ubicaciones/distrito/buscar';
 $route['ubicaciones/distrito/nombre']['GET'] = 'ubicaciones/distrito/nombre';
 $route['ubicaciones/distrito/listar/(:num)']['GET'] = 'ubicaciones/distrito/listar/$1';
 $route['ubicaciones/provincia/listar/(:num)']['GET'] = 'ubicaciones/provincia/listar/$1';
-# cms
+# contenidos
 $route['contenidos']['GET'] = 'contenidos/contenido/index';
+# contenidos/especialidad
 $route['contenidos/especialidad/listar']['GET'] = 'contenidos/especialidad/listar';
 $route['contenidos/especialidad/guardar']['POST'] = 'contenidos/especialidad/guardar';
+# contenidos/sede
 $route['contenidos/sede/listar']['GET'] = 'contenidos/sede/listar';
 $route['contenidos/sede/gudardar']['POST'] = 'contenidos/sede/guardar';
+# contenidos/tipo_sede
 $route['contenidos/tipo_sede/listar']['GET'] = 'contenidos/tipoSede/listar';
+# contenidos/sexo
+$route['contenidos/sexo/listar']['GET'] = 'contenidos/sexo/listar';
