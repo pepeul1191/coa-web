@@ -15,6 +15,7 @@
     </script>
 </head>
 <body>
+    <label id="defaultTargetMensajes"></label>
     <input type="hidden" name="ci_csrf_token" value="\\" onmouseover=prompt(965267) bad=\"" />
     <!-- Inicio modal -->
     <button type="button" class="btn btn-primary btn-lg oculto" data-toggle="modal" data-target="#modal-container" id="btnModal">Launch demo modal</button>

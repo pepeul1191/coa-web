@@ -25,8 +25,11 @@ var Router = Marionette.AppRouter.extend({
     },
     verSedeDoctores: function(sede_id) {
       $("#btnModal").click();
+      sexosCollection.llenarModels();
+      especialidadesCollection.llenarModels();
       sedeDoctorView.set("sede_id", sede_id);
       sedeDoctorView.render();
+      sedeDoctorView.mostrarDoctores();
     },
     verSedeResponsables: function(sede_id) {
       $("#btnModal").click();

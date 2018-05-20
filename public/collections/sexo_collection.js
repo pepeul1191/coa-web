@@ -1,7 +1,7 @@
-var EspecialidadesCollection = Backbone.Collection.extend({
-  model: Especialidad,
+var SexosCollection = Backbone.Collection.extend({
+  model: Sexo,
   initialize: function(params) {
-    this.targetMensaje = "defaultTargetMensajes";
+    this.targetMensaje = params["targetMensaje"];
   },
   llenarModels: function(){
     var responseData = [];
@@ -9,11 +9,20 @@ var EspecialidadesCollection = Backbone.Collection.extend({
     this.models = []; // para evitar que el primero sea nulo
     $.ajax({
       type: "GET",
-      url: BASE_URL + "contenidos/especialidad/listar",
+      url: BASE_URL + "contenidos/sexo/listar",
       data: {csrfmiddlewaretoken: CSRF},
       async: false,
       success: function(data){
-        responseData = JSON.parse(data);
+        tempResponseData = JSON.parse(data);
+        console.log(tempResponseData);
+        for (var i = 0; i < tempResponseData.length; i++) {
+          var temp = {
+            id: tempResponseData[i]["id"],
+            nombre: tempResponseData[i]["sexo"],
+          };
+          responseData.push(temp);
+        }
+        console.log(responseData);
       },
       error: function(error){
         $("#" + viewInstance.targetMensaje).removeClass("color-success");
@@ -36,6 +45,6 @@ var EspecialidadesCollection = Backbone.Collection.extend({
   },
 });
 
-var especialidadesCollection = new EspecialidadesCollection({
+var sexosCollection = new SexosCollection({
   targetMensaje: "defaultTargetMensajes",
 });
