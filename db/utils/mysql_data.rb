@@ -12,6 +12,8 @@ class Sede < Sequel::Model(DB[:tb_sede])
 end
 class Doctor < Sequel::Model(DB[:tb_doctor])
 end
+class Director < Sequel::Model(DB[:tb_director])
+end
 
 # métodos de lectura
 
@@ -37,4 +39,11 @@ def listar_doctores
   end
 end
 
-listar_doctores
+def listar_directores_sedes
+  directores = Director.all.to_a
+  directores.each do |director|
+    puts director.id_doctor.to_s + '::' + director.id_sede.to_s
+  end
+end
+
+listar_directores_sedes
