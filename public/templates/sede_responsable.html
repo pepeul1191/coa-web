@@ -24,7 +24,7 @@
               <div class="col-md-3">
                 <div class="form-group">
                   <label for="txtTelefonoTurno">Teléfono</label>
-                  <input type="text" class="form-control" id="txtTelefonoTurno" placeholder="">
+                  <input type="text" class="form-control" id="txtTelefonoTurno" placeholder="" value="{{telefono}}">
                 </div>
               </div>
               <div class="col-md-3">
@@ -44,7 +44,7 @@
                   <label for="txtTelefonoTurno">Doctores de la Sede</label>
                   <select class="form-control" id="cbmAmbientes" {{#if disabled}}disabled{{/if}}>
                     <option value="E"></option>
-                    {{#fillSelect doctores doctor_turno_id}}{{/fillSelect}}
+                    {{#fillSelect doctores director_id}}{{/fillSelect}}
                   </select>
                 </div>
               </div>

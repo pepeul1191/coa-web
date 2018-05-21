@@ -35,8 +35,11 @@ var Router = Marionette.AppRouter.extend({
       $("#btnModal").click();
       sedeResponsableView.set("sede_id", sede_id);
       sedeResponsableView.llenarModelsSelect();
+      sedeResponsableView.obtenerResponsables();
       sedeResponsableView.context.doctores = sedeResponsableView.doctoresSelect.toJSON();
-      sedeResponsableView.context.doctor_turno_id = 12;
+      sedeResponsableView.context.telefono = sedeResponsableView.responsables.telefono;
+      sedeResponsableView.context.director_id = sedeResponsableView.responsables.director_id;
+      sedeResponsableView.context.doctor_turno_id = sedeResponsableView.responsables.doctor_turno_id;
       sedeResponsableView.render();
     },
     index: function() {

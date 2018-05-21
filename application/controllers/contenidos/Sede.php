@@ -1,6 +1,8 @@
 <?php
 
 require_once 'application/models/contenidos/Sede_model.php';
+require_once 'application/models/contenidos/Director_model.php';
+require_once 'application/models/contenidos/DoctorTurno_model.php';
 
 class Sede extends CI_Controller
 {
@@ -23,6 +25,35 @@ class Sede extends CI_Controller
       ->select('tipo_sede_id')
     	->find_array();
     echo json_encode($rs);
+  }
+
+  public function obtenerResponsables($sede_id)
+  {
+    $this->load->library('HttpAccess',
+      array(
+        'config' => $this->config,
+        'allow' => ['GET'],
+        'received' => $this->input->method(TRUE)
+      )
+    );
+    $director = Model::factory('Director_model', 'contenidos')->where('sede_id', $sede_id)->find_one();
+    $doctor_turno = Model::factory('DoctorTurno_model', 'contenidos')->where('sede_id', $sede_id)->find_one();
+    $director_id = 'E';
+    $doctor_turno_id = 'E';
+    $telefono = '';
+    if($director != false){
+      $director_id = $director->doctor_id;
+    }
+    if($doctor_turno != false){
+      $doctor_turno_id = $doctor_turno->doctor_id;
+      $telefono = $doctor_turno->telefono;
+    }
+    $responsable = array(
+      'director_id' => $director_id,
+      'doctor_turno_id' => $doctor_turno_id,
+      'telefono' => $telefono,
+    );
+    echo json_encode($responsable);
   }
 
   public function guardar()
