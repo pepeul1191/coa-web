@@ -8,7 +8,7 @@ var paramsSedeDoctorTable = {
     success: "Se cargado guardo los cambios en las especialidades",
   },
   //urlListar: BASE_URL + "distrito/listar/" + provinciaId,
-  urlGuardar: BASE_URL + "contenidos/doctor/sede/",
+  urlGuardar: BASE_URL + "contenidos/doctor/sede/guardar",
   urlListar: BASE_URL + "contenidos/doctor/sede/",
   fila: {
     id: { // llave de REST
