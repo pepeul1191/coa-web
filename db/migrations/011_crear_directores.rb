@@ -13,8 +13,8 @@ Sequel.migration do
 	end
 
   down do
-    drop_column directores, :sede_id
-    drop_column directores, :doctor_id
+    drop_column :directores, :sede_id
+    drop_column :directores, :doctor_id
     drop_table(:directores)
 	end
 end
