@@ -129,7 +129,6 @@ class Sede extends CI_Controller
     $rpta = [];
     ORM::get_db('contenidos')->beginTransaction();
     $data = json_decode($this->input->post('data'));
-    var_dump($data);
     try {
       $doctor_turno = Model::factory('DoctorTurno_model', 'contenidos')->where('sede_id', $data->{'sede_id'})->find_one();
       if($doctor_turno != false){
@@ -151,6 +150,43 @@ class Sede extends CI_Controller
     } catch (Exception $e) {
       $rpta['tipo_mensaje'] = 'error';
       $rpta['mensaje'] = ['Se ha producido un error en guardar el doctor de turno de la sede', $e->getMessage()];
+      ORM::get_db('contenidos')->rollBack();
+      //$this->response->statusCode(500);
+      echo json_encode($rpta);
+    }
+  }
+
+  public function gudardarDirector()
+  {
+    $this->load->library('HttpAccess',
+      array(
+        'config' => $this->config,
+        'allow' => ['POST'],
+        'received' => $this->input->method(TRUE)
+      )
+    );
+    $rpta = [];
+    ORM::get_db('contenidos')->beginTransaction();
+    $data = json_decode($this->input->post('data'));
+    try {
+      $director = Model::factory('Director_model', 'contenidos')->where('sede_id', $data->{'sede_id'})->find_one();
+      if($director != false){
+        $director->doctor_id = $data->{'doctor_id'};
+        $director->save();
+      }else{
+        $director_nuevo = Model::factory('Director_model', 'contenidos')->create();
+        $director_nuevo->sede_id = $data->{'sede_id'};
+        $director_nuevo->doctor_id = $data->{'doctor_id'};
+        $director_nuevo->save();
+      }
+      ORM::get_db('contenidos')->commit();
+      $rpta['tipo_mensaje'] = 'success';
+      $rpta['mensaje'] = ['Se ha registrado el director de la sede', []];
+      //$this->response->statusCode(200);
+      echo json_encode($rpta);
+    } catch (Exception $e) {
+      $rpta['tipo_mensaje'] = 'error';
+      $rpta['mensaje'] = ['Se ha producido un error en guardar el director de la sede', $e->getMessage()];
       ORM::get_db('contenidos')->rollBack();
       //$this->response->statusCode(500);
       echo json_encode($rpta);

@@ -75,6 +75,7 @@ $route['contenidos/sede/listar']['GET'] = 'contenidos/sede/listar';
 $route['contenidos/sede/gudardar']['POST'] = 'contenidos/sede/guardar';
 $route['contenidos/sede/obtener_responsables/(:num)']['GET'] = 'contenidos/sede/obtenerResponsables/$1';
 $route['contenidos/sede/doctor_turno/guardar']['POST'] = 'contenidos/sede/gudardarDoctorTurno';
+$route['contenidos/sede/director/guardar']['POST'] = 'contenidos/sede/gudardarDirector';
 # contenidos/doctor
 $route['contenidos/doctor/listar/(:num)']['GET'] = 'contenidos/doctor/sede/$1';
 $route['contenidos/doctor/sede/guardar']['POST'] = 'contenidos/doctor/guardar';
