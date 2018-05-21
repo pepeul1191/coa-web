@@ -1,6 +1,7 @@
 <?php
 
 require_once 'application/models/contenidos/Doctor_model.php';
+require_once 'application/models/contenidos/ViewDoctor_model.php';
 
 class Doctor extends CI_Controller
 {
@@ -90,6 +91,23 @@ class Doctor extends CI_Controller
       ORM::get_db('contenidos')->rollBack();
     }
     echo json_encode($rpta);
+  }
+
+  public function select($sede_id)
+  {
+    $this->load->library('HttpAccess',
+      array(
+        'config' => $this->config,
+        'allow' => ['GET'],
+        'received' => $this->input->method(TRUE)
+      )
+    );
+    $rs = Model::factory('ViewDoctor_model', 'contenidos')
+      ->select('id')
+      ->select('nombre')
+      ->where('sede_id', $sede_id)
+      ->find_array();
+    echo json_encode($rs);
   }
 }
 

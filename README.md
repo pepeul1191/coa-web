@@ -32,13 +32,12 @@ Ejecutar el 'up' de las migraciones hasta un versión especifica:
 
     $ sequel -m db/migrations -M #version mysql://root:123@localhost/gestion
 
-Crear Vista de distrito/provincia/departamento
+Crear Vista de doctores
 
       MySQL
       >> CREATE VIEW vw_distrito_provincia_departamento AS select DI.id AS id, PA.id AS pais_id, concat(DI.nombre,', ',PR.nombre,', ',DE.nombre) AS nombre from ((distritos DI join provincias PR on((DI.provincia_id = PR.id))) join departamentos DE on((PR.departamento_id = DE.id))) join paises PA on((DE.pais_id = PA.id)) limit 2000;
       SQLite
-      >> CREATE VIEW vw_distrito_provincia_departamentos AS select DI.id AS id,  DI.nombre || ', '  || PR.nombre || ', '  || DE.nombre AS nombre
-    from distritos DI join provincias PR on DI.provincia_id = PR.id join departamentos DE on PR.departamento_id = DE.id limit 2000;
+      >> CREATE VIEW vw_doctores AS SELECT D.id AS id,  D.sede_id,  S.nombre1  || ' ' || D.paterno || ' '  || D.materno|| ', '  || D.nombres AS nombre FROM doctores D join sexos S on D.sexo_id = S.id limit 2000;
 
 Tipos de Datos de Columnas
 
