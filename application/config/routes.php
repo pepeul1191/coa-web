@@ -80,6 +80,8 @@ $route['contenidos/sede/director/guardar']['POST'] = 'contenidos/sede/gudardarDi
 $route['contenidos/doctor/listar/(:num)']['GET'] = 'contenidos/doctor/sede/$1';
 $route['contenidos/doctor/sede/guardar']['POST'] = 'contenidos/doctor/guardar';
 $route['contenidos/doctor/select/(:num)']['GET'] = 'contenidos/doctor/select/$1';
+$route['contenidos/doctor/sexo_sede_especialidad']['GET'] = 'contenidos/doctor/doctorSedeSexoEspecialidad';
+$route['contenidos/doctor/count_sexo_sede_especialidad']['GET'] = 'contenidos/doctor/countDoctorSedeSexoEspecialidad';
 # contenidos/tipo_sede
 $route['contenidos/tipo_sede/listar']['GET'] = 'contenidos/tipoSede/listar';
 # contenidos/sexo

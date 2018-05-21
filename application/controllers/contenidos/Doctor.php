@@ -2,6 +2,7 @@
 
 require_once 'application/models/contenidos/Doctor_model.php';
 require_once 'application/models/contenidos/ViewDoctor_model.php';
+require_once 'application/models/contenidos/ViewDoctorSedeSexoEspecialidad_model.php';
 
 class Doctor extends CI_Controller
 {
@@ -108,6 +109,40 @@ class Doctor extends CI_Controller
       ->where('sede_id', $sede_id)
       ->find_array();
     echo json_encode($rs);
+  }
+
+  public function doctorSedeSexoEspecialidad()
+  {
+    //contenidos/doctor/sexo_sede_especialidad?data={"step":10,"page":2}
+    $this->load->library('HttpAccess',
+      array(
+        'config' => $this->config,
+        'allow' => ['GET'],
+        'received' => $this->input->method(TRUE)
+      )
+    );
+    $data = json_decode($this->input->get('data'));
+    $page = $data->{'page'};
+    $step = $data->{'step'};
+    $inicio = ($page - 1) * $step + 1;
+    $rs = Model::factory('ViewDoctorSedeSexoEspecialidad_model', 'contenidos')
+      ->limit($step)
+      ->offset($inicio-1) //es menos 1 porque cuenta arreglo inicializado en 0
+      ->find_array();
+    echo json_encode($rs);
+  }
+
+  public function countDoctorSedeSexoEspecialidad()
+  {
+    $this->load->library('HttpAccess',
+      array(
+        'config' => $this->config,
+        'allow' => ['GET'],
+        'received' => $this->input->method(TRUE)
+      )
+    );
+    echo Model::factory('ViewDoctorSedeSexoEspecialidad_model', 'contenidos')
+      ->count();
   }
 }
 
