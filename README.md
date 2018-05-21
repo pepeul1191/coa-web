@@ -39,6 +39,20 @@ Crear Vista de doctores
       SQLite
       >> CREATE VIEW vw_doctores AS SELECT D.id AS id,  D.sede_id,  S.nombre1  || ' ' || D.paterno || ' '  || D.materno|| ', '  || D.nombres AS nombre FROM doctores D join sexos S on D.sexo_id = S.id limit 2000;
 
+Crear vista de doctores con sexo y sede:
+
+    >> SQLite
+    DROP VIEW IF EXISTS vw_doctores_sede_sexos;
+    CREATE VIEW vw_doctores_sede_sexos AS SELECT
+    --D.id AS id,  D.sede_id,  LT.nombre AS tipo_sede, L.nombre AS sede,  S.nombre1  || ' ' || D.paterno || ' '  || D.materno|| ', '  || D.nombres AS nombre
+    --D.id AS id,  D.sede_id,  S.nombre1  || ' ' || D.paterno || ' '  || D.materno|| ', '  || D.nombres AS nombre
+    D.id AS id,  D.sede_id,  L.nombre AS sede,  TL.nombre AS tipo_sede ,S.nombre1  || ' ' || D.paterno || ' '  || D.materno|| ', '  || D.nombres AS doctor
+    FROM doctores D
+    INNER JOIN sexos S on D.sexo_id = S.id  
+    INNER JOIN sedes L ON L.id = D.sede_id
+    INNER JOIN tipo_sedes TL ON  L.tipo_sede_id = TL.id
+    LIMIT 2000;
+
 Tipos de Datos de Columnas
 
 + :string=>String
