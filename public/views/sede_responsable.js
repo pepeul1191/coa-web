@@ -1,5 +1,6 @@
 var sedeResponsableView = ModalView.extend({
   initialize: function(options){
+    this.targetMensaje = options["targetMensaje"];
     // herencia de atributos, móetodos y eventos
     ModalView.prototype.initialize.apply(this, [options])
     this.inheritEvents(ModalView);
@@ -11,6 +12,8 @@ var sedeResponsableView = ModalView.extend({
   },
   events: {
     // se está usando asignacion dinamica de eventos en el constructor
+    "click #btnGuardarDoctorTurno": "guardarDoctorTurno",
+    "click #btnGuardarDirectorSede": "guardarDirectorSede",
   },
   llenarModelsSelect: function(){
     this.doctoresSelect.llenarModelsSelect(this.get("sede_id"));
@@ -36,6 +39,45 @@ var sedeResponsableView = ModalView.extend({
       }
     });
   },
+  guardarDoctorTurno: function(){
+    var viewInstance = this;
+    var doctorTurno = new DoctorTurno({
+      sede_id: this.get("sede_id"),
+      doctor_id: $("#cbmDoctorTurno").val(),
+      telefono: $("#txtTelefonoTurno").val(),
+    });
+    $.ajax({
+      type: "POST",
+      url: BASE_URL + "contenidos/sede/doctor_turno/guardar",
+      data: {csrfmiddlewaretoken: CSRF, data: JSON.stringify(doctorTurno.toJSON())},
+      async: false,
+      success: function(data){
+        var responseData = JSON.parse(data);
+        if(responseData.tipo_mensaje == "success"){
+					$("#" + viewInstance.targetMensaje).removeClass("color-danger");
+	        $("#" + viewInstance.targetMensaje).removeClass("color-warning");
+	        $("#" + viewInstance.targetMensaje).addClass("color-success");
+	        $("#" + viewInstance.targetMensaje).html(responseData.mensaje[0]);
+					$("html, body").animate({ scrollTop: $("#" + viewInstance.targetMensaje).offset().top }, 1000);
+        }
+      },
+      error: function(error){
+        $("#" + viewInstance.targetMensaje).removeClass("color-success");
+        $("#" + viewInstance.targetMensaje).removeClass("color-warning");
+        $("#" + viewInstance.targetMensaje).addClass("color-danger");
+        $("#" + viewInstance.targetMensaje).html("Error en guardar al doctor de turno");
+        $("html, body").animate({ scrollTop: $("#" + viewInstance.targetMensaje).offset().top }, 1000);
+        console.log(error);
+      }
+    });
+  },
+  guardarDirectorSede: function(){
+    var director = new Director({
+      sede_id: this.get("sede_id"),
+      doctor_id: $("#cbmDirector").val(),
+    });
+    console.log(director);
+  },
 });
 
 var sedeResponsableView = new sedeResponsableView({
@@ -43,6 +85,7 @@ var sedeResponsableView = new sedeResponsableView({
   containerModal: "modal-container",
   urlTemplate: STATICS_URL + "templates/sede_responsable.html",
   handlebarsTemplateId: "sede-responsable-template",
+  targetMensaje: "mensajeRptaSedeResponsables",
   context: {
     titulo_modal: "Gestión de Responsables de la Sede",
   },

@@ -8,6 +8,7 @@
         </button>
       </div>
       <div class="modal-body">
+        <label class="texto-der" id="mensajeRptaSedeResponsables"></label>
         <div class="row">
           <div class="col-md-12">
             <h6>Doctor(a) de Turno de la Sede</h6>
@@ -15,7 +16,7 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="txtTelefonoTurno">Doctores de la Sede</label>
-                  <select class="form-control" id="cbmAmbientes" {{#if disabled}}disabled{{/if}}>
+                  <select class="form-control" id="cbmDoctorTurno" {{#if disabled}}disabled{{/if}}>
                     <option value="E"></option>
                     {{#fillSelect doctores doctor_turno_id}}{{/fillSelect}}
                   </select>
@@ -29,7 +30,7 @@
               </div>
               <div class="col-md-3">
                 <div class="form-group form-group-btn">
-                  <button class="btn btn-default guardar-tabla"> <i class="fa fa-check" style="margin-right:5px" id="btnGuardarDoctorTurno"></i>Guardar Cambios</button>
+                  <button class="btn btn-default guardar-tabla" id="btnGuardarDoctorTurno"><i class="fa fa-check" style="margin-right:5px"></i>Guardar Cambios</button>
                 </div>
               </div>
             </div>
@@ -42,7 +43,7 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="txtTelefonoTurno">Doctores de la Sede</label>
-                  <select class="form-control" id="cbmAmbientes" {{#if disabled}}disabled{{/if}}>
+                  <select class="form-control" id="cbmDirector" {{#if disabled}}disabled{{/if}}>
                     <option value="E"></option>
                     {{#fillSelect doctores director_id}}{{/fillSelect}}
                   </select>
@@ -50,7 +51,7 @@
               </div>
               <div class="col-md-3">
                 <div class="form-group form-group-btn">
-                  <button class="btn btn-default guardar-tabla"> <i class="fa fa-check" style="margin-right:5px" id="btnGuardarDirectorSede"></i>Guardar Cambios</button>
+                  <button class="btn btn-default guardar-tabla" id="btnGuardarDirectorSede"><i class="fa fa-check" style="margin-right:5px"></i>Guardar Cambios</button>
                 </div>
               </div>
             </div>

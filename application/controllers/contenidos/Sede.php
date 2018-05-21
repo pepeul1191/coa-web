@@ -116,6 +116,46 @@ class Sede extends CI_Controller
     }
     echo json_encode($rpta);
   }
+
+  public function gudardarDoctorTurno()
+  {
+    $this->load->library('HttpAccess',
+      array(
+        'config' => $this->config,
+        'allow' => ['POST'],
+        'received' => $this->input->method(TRUE)
+      )
+    );
+    $rpta = [];
+    ORM::get_db('contenidos')->beginTransaction();
+    $data = json_decode($this->input->post('data'));
+    var_dump($data);
+    try {
+      $doctor_turno = Model::factory('DoctorTurno_model', 'contenidos')->where('sede_id', $data->{'sede_id'})->find_one();
+      if($doctor_turno != false){
+        $doctor_turno->doctor_id = $data->{'doctor_id'};
+        $doctor_turno->telefono = $data->{'telefono'};
+        $doctor_turno->save();
+      }else{
+        $doctor_turno_nuevo = Model::factory('DoctorTurno_model', 'contenidos')->create();
+        $doctor_turno_nuevo->sede_id = $data->{'sede_id'};
+        $doctor_turno_nuevo->telefono = $data->{'telefono'};
+        $doctor_turno_nuevo->doctor_id = $data->{'doctor_id'};
+        $doctor_turno_nuevo->save();
+      }
+      ORM::get_db('contenidos')->commit();
+      $rpta['tipo_mensaje'] = 'success';
+      $rpta['mensaje'] = ['Se ha registrado el doctor de turno de la sede', []];
+      //$this->response->statusCode(200);
+      echo json_encode($rpta);
+    } catch (Exception $e) {
+      $rpta['tipo_mensaje'] = 'error';
+      $rpta['mensaje'] = ['Se ha producido un error en guardar el doctor de turno de la sede', $e->getMessage()];
+      ORM::get_db('contenidos')->rollBack();
+      //$this->response->statusCode(500);
+      echo json_encode($rpta);
+    }
+  }
 }
 
 ?>

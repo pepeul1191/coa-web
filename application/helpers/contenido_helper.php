@@ -55,6 +55,8 @@ if ( ! function_exists('index_js'))
           'views/especialidad',
           'models/sede',
           'models/doctor',
+          'models/doctor_turno',
+          'models/director',
           'collections/sede_doctor_collection',
           'views/sede_doctor_table',
           'views/sede_doctor',
