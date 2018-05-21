@@ -18,17 +18,17 @@ var paramsSedeDoctorTable = {
     },
     nombres: { // llave de REST
       tipo: "text",
-      estilos: "width: 200px;",
+      estilos: "width: 150px;",
       edicion: true,
     },
     paterno: { // llave de REST
       tipo: "text",
-      estilos: "width: 200px;",
+      estilos: "width: 150px;",
       edicion: true,
     },
     materno: { // llave de REST
       tipo: "text",
-      estilos: "width: 200px;",
+      estilos: "width: 150px;",
       edicion: true,
     },
     cop: { // llave de REST
@@ -54,7 +54,7 @@ var paramsSedeDoctorTable = {
       collection: sexosCollection,
     },
     filaBotones: {
-      estilos: "width: 80px"
+      estilos: "width: 20px; padding-left:17px;"
     },
   },
   filaBotones: [

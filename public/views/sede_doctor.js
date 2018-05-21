@@ -13,6 +13,8 @@ var SedeDoctorView = ModalView.extend({
   mostrarDoctores: function(){
     this.tabla.urlListar = this.tabla.urlListar + this.get("sede_id");
     this.tabla.listar();
+    //Devolver la urlListar a su estado original si el param
+    this.tabla.urlListar = this.tabla.urlListar.replace(this.get("sede_id"),'');
   },
 });
 

@@ -33,6 +33,7 @@ var Router = Marionette.AppRouter.extend({
     },
     verSedeResponsables: function(sede_id) {
       $("#btnModal").click();
+      console.log(sedeResponsableView.get("sede_id"));
       sedeResponsableView.set("sede_id", sede_id);
       sedeResponsableView.render();
     },

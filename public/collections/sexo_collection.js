@@ -14,7 +14,6 @@ var SexosCollection = Backbone.Collection.extend({
       async: false,
       success: function(data){
         tempResponseData = JSON.parse(data);
-        console.log(tempResponseData);
         for (var i = 0; i < tempResponseData.length; i++) {
           var temp = {
             id: tempResponseData[i]["id"],
@@ -22,7 +21,6 @@ var SexosCollection = Backbone.Collection.extend({
           };
           responseData.push(temp);
         }
-        console.log(responseData);
       },
       error: function(error){
         $("#" + viewInstance.targetMensaje).removeClass("color-success");
