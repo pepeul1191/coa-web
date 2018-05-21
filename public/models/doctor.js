@@ -1,5 +1,6 @@
 var Doctor = Backbone.Model.extend({
   defaults: {
+    nombre: '',
     nombres: '',
     paterno: '',
     materno: '',

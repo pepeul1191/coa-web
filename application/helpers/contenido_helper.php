@@ -50,6 +50,7 @@ if ( ! function_exists('index_js'))
           'collections/tipo_sede_collection',
           'models/especialidad',
           'collections/especialidad_collection',
+          'collections/doctor_collection',
           'views/especialidad_table',
           'views/especialidad',
           'models/sede',

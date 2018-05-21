@@ -15,7 +15,10 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="txtTelefonoTurno">Doctores de la Sede</label>
-                  <input type="text" class="form-control" id="txtTelefonoTurno" placeholder="">
+                  <select class="form-control" id="cbmAmbientes" {{#if disabled}}disabled{{/if}}>
+                    <option value="E"></option>
+                    {{#fillSelect doctores doctor_turno_id}}{{/fillSelect}}
+                  </select>
                 </div>
               </div>
               <div class="col-md-3">
@@ -26,7 +29,7 @@
               </div>
               <div class="col-md-3">
                 <div class="form-group form-group-btn">
-                  <button class="btn btn-default guardar-tabla"> <i class="fa fa-check" style="margin-right:5px"></i>Guardar Cambios</button>
+                  <button class="btn btn-default guardar-tabla"> <i class="fa fa-check" style="margin-right:5px" id="btnGuardarDoctorTurno"></i>Guardar Cambios</button>
                 </div>
               </div>
             </div>
@@ -39,12 +42,15 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="txtTelefonoTurno">Doctores de la Sede</label>
-                  <input type="text" class="form-control" id="txtTelefonoTurno" placeholder="">
+                  <select class="form-control" id="cbmAmbientes" {{#if disabled}}disabled{{/if}}>
+                    <option value="E"></option>
+                    {{#fillSelect doctores doctor_turno_id}}{{/fillSelect}}
+                  </select>
                 </div>
               </div>
               <div class="col-md-3">
                 <div class="form-group form-group-btn">
-                  <button class="btn btn-default guardar-tabla"> <i class="fa fa-check" style="margin-right:5px"></i>Guardar Cambios</button>
+                  <button class="btn btn-default guardar-tabla"> <i class="fa fa-check" style="margin-right:5px" id="btnGuardarDirectorSede"></i>Guardar Cambios</button>
                 </div>
               </div>
             </div>
