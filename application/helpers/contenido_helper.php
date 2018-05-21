@@ -64,6 +64,7 @@ if ( ! function_exists('index_js'))
           'collections/sede_collection',
           'views/sede_table',
           'views/sede',
+          'views/doctor',
           'routes/contenido',
         ];
         break;
