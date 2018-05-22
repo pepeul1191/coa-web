@@ -44,7 +44,7 @@ Crear vista de doctores con sexo, sede y especialidad:
     >> SQLite
     DROP VIEW IF EXISTS vw_doctores_sede_sexos_especialidades;
     CREATE VIEW vw_doctores_sede_sexos_especialidades AS SELECT
-    D.id AS id, D.nombres,  D.paterno, D.materno, D.sede_id,  L.nombre AS sede,  TL.nombre AS tipo_sede , S.id AS sexo_id, S.nombre1 AS sexo, E.id AS especialidad_id, E.nombre AS especialidad
+    D.id AS id, D.nombres,  D.paterno, D.materno, D.rne, D.cop, D.sede_id,  L.nombre AS sede,  TL.nombre AS tipo_sede , S.id AS sexo_id, S.nombre1 AS sexo, E.id AS especialidad_id, E.nombre AS especialidad
     FROM doctores D
     INNER JOIN sexos S on D.sexo_id = S.id  
     INNER JOIN sedes L ON L.id = D.sede_id
