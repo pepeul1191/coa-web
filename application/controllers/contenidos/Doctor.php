@@ -144,6 +144,20 @@ class Doctor extends CI_Controller
     echo Model::factory('ViewDoctorSedeSexoEspecialidad_model', 'contenidos')
       ->count();
   }
+
+  public function obtener($doctor_id){
+    $this->load->library('HttpAccess',
+      array(
+        'config' => $this->config,
+        'allow' => ['GET'],
+        'received' => $this->input->method(TRUE)
+      )
+    );
+    $rs = Model::factory('ViewDoctorSedeSexoEspecialidad_model', 'contenidos')
+      ->where('id', $doctor_id)
+      ->find_array();
+    echo json_encode($rs[0]);
+  }
 }
 
 ?>
