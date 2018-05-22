@@ -84,6 +84,7 @@ $route['contenidos/doctor/select/(:num)']['GET'] = 'contenidos/doctor/select/$1'
 $route['contenidos/doctor/sexo_sede_especialidad']['GET'] = 'contenidos/doctor/doctorSedeSexoEspecialidad';
 $route['contenidos/doctor/count_sexo_sede_especialidad']['GET'] = 'contenidos/doctor/countDoctorSedeSexoEspecialidad';
 $route['contenidos/doctor/obtener/(:num)']['GET'] = 'contenidos/doctor/obtener/$1';
+$route['contenidos/doctor/editar']['POST'] = 'contenidos/doctor/editar';
 # contenidos/tipo_sede
 $route['contenidos/tipo_sede/listar']['GET'] = 'contenidos/tipoSede/listar';
 # contenidos/sexo

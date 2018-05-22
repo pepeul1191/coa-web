@@ -158,6 +158,40 @@ class Doctor extends CI_Controller
       ->find_array();
     echo json_encode($rs[0]);
   }
+
+  public function editar()
+  {
+    $this->load->library('HttpAccess',
+      array(
+        'config' => $this->config,
+        'allow' => ['POST'],
+        'received' => $this->input->method(TRUE)
+      )
+    );
+    $rpta = [];
+    ORM::get_db('contenidos')->beginTransaction();
+    try{
+      $data = json_decode($this->input->post('data'));
+      $doctor = Model::factory('Doctor_model', 'contenidos')->find_one($data->{'id'});
+      $doctor->nombres = $data->{'nombres'};
+      $doctor->paterno = $data->{'paterno'};
+      $doctor->materno = $data->{'materno'};
+      $doctor->cop = $data->{'cop'};
+      $doctor->rne = $data->{'rne'};
+      $doctor->sede_id = $data->{'sede_id'};
+      $doctor->especialidad_id = $data->{'especialidad_id'};
+      $doctor->sexo_id = $data->{'sexo_id'};
+      $doctor->save();
+      $rpta['tipo_mensaje'] = 'success';
+      $rpta['mensaje'] = ['Se ha registrado los cambios en el doctor(a)', []];
+      ORM::get_db('contenidos')->commit();
+    } catch (Exception $e) {
+      $rpta['tipo_mensaje'] = 'error';
+      $rpta['mensaje'] = ['Se ha producido un error en guardar el doctor(a)', $e->getMessage()];
+      ORM::get_db('contenidos')->rollBack();
+    }
+    echo json_encode($rpta);
+  }
 }
 
 ?>
