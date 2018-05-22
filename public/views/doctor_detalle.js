@@ -44,7 +44,6 @@ var DoctorDetalleView = ModalView.extend({
     });
   },
   llenarModelsSelect: function(){
-    console.log(this);
     this.sexosSelect.llenarModels();
     this.tipoSedesSelect.llenarModels();
     this.sedesSelect.llenarModels(1);
