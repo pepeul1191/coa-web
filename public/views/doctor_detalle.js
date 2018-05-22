@@ -22,6 +22,7 @@ var DoctorDetalleView = ModalView.extend({
   },
   events: {
     // se está usando asignacion dinamica de eventos en el constructor
+    "change #cbmTipoSede": "refrescarSedes",
   },
   setModel: function(){
     var viewInstance = this;
@@ -46,8 +47,19 @@ var DoctorDetalleView = ModalView.extend({
   llenarModelsSelect: function(){
     this.sexosSelect.llenarModels();
     this.tipoSedesSelect.llenarModels();
-    this.sedesSelect.llenarModels(1);
+    this.sedesSelect.llenarModels(this.model.tipo_sede_id);
     this.especialidadesSelect.llenarModels();
+  },
+  refrescarSedes: function(event){
+    this.sedesSelect.llenarModels(event.target.value);
+    $("#cbmSede").empty();
+    for (var i = 0; i < this.sedesSelect.toJSON().length; i++) {
+      var option = document.createElement("option");
+			option.value = this.sedesSelect.toJSON()[i].id;
+			option.text = this.sedesSelect.toJSON()[i].nombre;
+			document.getElementById("cbmSede").appendChild(option);
+    }
+    document.getElementById("cbmSede").value = this.model.sede_id;
   },
 });
 

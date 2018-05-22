@@ -14,25 +14,25 @@
             <div class="row">
               <div class="col-md-3">
                 <div class="form-group">
-                  <label for="txtTelefonoTurno">Nombres</label>
-                  <input type="text" class="form-control" id="txtTelefonoTurno" placeholder="" value="{{doctor.nombres}}">
+                  <label for="txtNombres">Nombres</label>
+                  <input type="text" class="form-control" id="txtNombres" placeholder="" value="{{doctor.nombres}}">
                 </div>
               </div>
               <div class="col-md-3">
                 <div class="form-group">
-                  <label for="txtTelefonoTurno">Apellido Paterno</label>
-                  <input type="text" class="form-control" id="txtTelefonoTurno" placeholder="" value="{{doctor.paterno}}">
+                  <label for="txtPaterno">Apellido Paterno</label>
+                  <input type="text" class="form-control" id="txtPaterno" placeholder="" value="{{doctor.paterno}}">
                 </div>
               </div>
               <div class="col-md-3">
                 <div class="form-group">
-                  <label for="txtTelefonoTurno">Apellido Materno</label>
-                  <input type="text" class="form-control" id="txtTelefonoTurno" placeholder="" value="{{doctor.materno}}">
+                  <label for="txtMaterno">Apellido Materno</label>
+                  <input type="text" class="form-control" id="txtMaterno" placeholder="" value="{{doctor.materno}}">
                 </div>
               </div>
               <div class="col-md-1">
                 <div class="form-group">
-                  <label for="txtTelefonoTurno">Sexo</label>
+                  <label for="cbmSexo">Sexo</label>
                   <select class="form-control" id="cbmSexo" {{#if disabled}}disabled{{/if}}>
                     <option value="E"></option>
                     {{#fillSelect sexos doctor.sexo_id}}{{/fillSelect}}
@@ -41,8 +41,8 @@
               </div>
               <div class="col-md-2">
                 <div class="form-group">
-                  <label for="txtTelefonoTurno">N° COP</label>
-                  <input type="text" class="form-control" id="txtTelefonoTurno" placeholder="" value="{{doctor.cop}}">
+                  <label for="txtCOP">N° COP</label>
+                  <input type="text" class="form-control" id="txtCOP" placeholder="" value="{{doctor.cop}}">
                 </div>
               </div>
             </div>
@@ -53,14 +53,14 @@
             <div class="row">
               <div class="col-md-2">
                 <div class="form-group">
-                  <label for="txtTelefonoTurno">N° RNE</label>
-                  <input type="text" class="form-control" id="txtTelefonoTurno" placeholder="" value="{{doctor.rne}}">
+                  <label for="txtRNE">N° RNE</label>
+                  <input type="text" class="form-control" id="txtRNE" placeholder="" value="{{doctor.rne}}">
                 </div>
               </div>
               <div class="col-md-2">
                 <div class="form-group">
-                  <label for="txtTelefonoTurno">Tipo de Sede</label>
-                  <select class="form-control" id="cbmEspecialida" {{#if disabled}}disabled{{/if}}>
+                  <label for="cbmTipoSede">Tipo de Sede</label>
+                  <select class="form-control" id="cbmTipoSede" {{#if disabled}}disabled{{/if}}>
                     <option value="E"></option>
                     {{#fillSelect tipo_sedes doctor.tipo_sede_id}}{{/fillSelect}}
                   </select>
@@ -68,8 +68,8 @@
               </div>
               <div class="col-md-4">
                 <div class="form-group">
-                  <label for="txtTelefonoTurno">Sede</label>
-                  <select class="form-control" id="cbmEspecialida" {{#if disabled}}disabled{{/if}}>
+                  <label for="cbmSede">Sede</label>
+                  <select class="form-control" id="cbmSede" {{#if disabled}}disabled{{/if}}>
                     <option value="E"></option>
                     {{#fillSelect sedes doctor.sede_id}}{{/fillSelect}}
                   </select>
@@ -77,8 +77,8 @@
               </div>
               <div class="col-md-4">
                 <div class="form-group">
-                  <label for="txtTelefonoTurno">Especialidades</label>
-                  <select class="form-control" id="cbmEspecialida" {{#if disabled}}disabled{{/if}}>
+                  <label for="cbmEspecialidad">Especialidades</label>
+                  <select class="form-control" id="cbmEspecialidad" {{#if disabled}}disabled{{/if}}>
                     <option value="E"></option>
                     {{#fillSelect especialidades doctor.especialidad_id}}{{/fillSelect}}
                   </select>
@@ -90,7 +90,7 @@
         <div class="row">
           <div class="col-md-12">
             <div class="form-group pull-right" style="padding-top:10px">
-              <button class="btn btn-default guardar-tabla" id="btnGuardarDoctorTurno"><i class="fa fa-check" style="margin-right:5px"></i>Guardar Cambios</button>
+              <button class="btn btn-default guardar-tabla" id="btnGuardarDetalleDoctor"><i class="fa fa-check" style="margin-right:5px"></i>Guardar Cambios</button>
             </div>
           </div>
         </div>
