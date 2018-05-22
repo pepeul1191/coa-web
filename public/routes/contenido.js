@@ -51,6 +51,13 @@ var Router = Marionette.AppRouter.extend({
     },
     editarDoctor: function(doctor_id){
       doctorDetalleView.set("doctor_id", doctor_id);
+      doctorDetalleView.setModel();
+      doctorDetalleView.llenarModelsSelect();
+      doctorDetalleView.context.doctor = doctorDetalleView.model;
+      doctorDetalleView.context.sexos = doctorDetalleView.sexosSelect.toJSON();
+      doctorDetalleView.context.tipo_sedes = doctorDetalleView.tipoSedesSelect.toJSON();
+      doctorDetalleView.context.sedes = doctorDetalleView.sedesSelect.toJSON();
+      doctorDetalleView.context.especialidades = doctorDetalleView.especialidadesSelect.toJSON();
       doctorDetalleView.render();
     },
     index: function() {

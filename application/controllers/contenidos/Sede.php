@@ -156,6 +156,22 @@ class Sede extends CI_Controller
     }
   }
 
+  public function listarSedeTipo($tipo_sede_id){
+    $this->load->library('HttpAccess',
+      array(
+        'config' => $this->config,
+        'allow' => ['GET'],
+        'received' => $this->input->method(TRUE)
+      )
+    );
+    $rs = Model::factory('Sede_model', 'contenidos')
+      ->select('id')
+      ->select('nombre')
+      ->where('tipo_sede_id', $tipo_sede_id)
+      ->find_array();
+    echo json_encode($rs);
+  }
+
   public function gudardarDirector()
   {
     $this->load->library('HttpAccess',

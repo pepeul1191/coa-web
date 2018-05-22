@@ -1,4 +1,4 @@
-var sedeResponsableView = ModalView.extend({
+var SedeResponsableView = ModalView.extend({
   initialize: function(options){
     this.targetMensaje = options["targetMensaje"];
     // herencia de atributos, móetodos y eventos
@@ -104,7 +104,7 @@ var sedeResponsableView = ModalView.extend({
   },
 });
 
-var sedeResponsableView = new sedeResponsableView({
+var sedeResponsableView = new SedeResponsableView({
   el: "body",
   containerModal: "modal-container",
   urlTemplate: STATICS_URL + "templates/sede_responsable.html",
