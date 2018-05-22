@@ -47,7 +47,6 @@ var Router = Marionette.AppRouter.extend({
       var doctorView = new DoctorView({});
       doctorView.render();
       doctorView.mostrarTabla();
-      
     },
     index: function() {
         // show the email

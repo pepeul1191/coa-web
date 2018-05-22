@@ -76,7 +76,7 @@ var paramsDoctorTable = {
       claseOperacion: "editar",
       clase: "fa-pencil",
       estilos: "padding-left: 7px;",
-      url: BASE_URL + 'contenidos/#/doctor/editar/'/*+ sede_id*/,
+      url: BASE_URL + 'contenidos/#/doctor/editar/'/*+ doctor_id*/,
     },
   ],
   collection: new ViewDoctoresCollection(),
