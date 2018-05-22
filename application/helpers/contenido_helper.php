@@ -63,6 +63,7 @@ if ( ! function_exists('index_js'))
           'views/sede_doctor_table',
           'views/sede_doctor',
           'views/sede_responsable',
+          'views/doctor_detalle',
           'collections/sede_collection',
           'views/sede_table',
           'views/doctor_table',

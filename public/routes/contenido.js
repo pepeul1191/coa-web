@@ -7,6 +7,7 @@ var Router = Marionette.AppRouter.extend({
       "sede/doctores/:sede_id": "verSedeDoctores",
       "sede/responsables/:sede_id": "verSedeResponsables",
       "doctor": "doctor",
+      "doctor/editar/:doctor_id": "editarDoctor",
       "*actions" : "index"
     },
     showEmail: function(email) {
@@ -47,6 +48,10 @@ var Router = Marionette.AppRouter.extend({
       var doctorView = new DoctorView({});
       doctorView.render();
       doctorView.mostrarTabla();
+    },
+    editarDoctor: function(doctor_id){
+      doctorDetalleView.set("doctor_id", doctor_id);
+      doctorDetalleView.render();
     },
     index: function() {
         // show the email
