@@ -108,5 +108,7 @@ var doctorDetalleView = new DoctorDetalleView({
   context: {
     titulo_modal: "Editar Doctor",
   },
-  closeFunction: function(){},
+  closeFunction: function(){
+     //location.replace(BASE_URL + "contenidos/#/doctor");
+  },
 });

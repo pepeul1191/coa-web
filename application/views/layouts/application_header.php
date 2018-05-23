@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <?php echo load_csss($this->config, $csss);?>
     <link rel="shortcut icon" href="<?php echo $this->config->item('static_url'); ?>favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="text/javascript">
         var BASE_URL = '<?php echo $this->config->item('base_url');?>';
         var STATICS_URL  = '<?php echo $this->config->item('static_url');?>';

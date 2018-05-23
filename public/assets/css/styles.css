@@ -1,0 +1,2 @@
+.form-group-nested > .col-md-4, .form-group-nested > .col-md-6{padding-right: 0px}
+.form-group-nested > .col-md-4 > .form-group, .form-group-nested > .col-md-6  > .form-group, .form-group-nested > .col-md-12 > .form-group{margin-bottom: 0px}
