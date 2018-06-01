@@ -1,3 +1,16 @@
+var dataSedeDoctorView = {
+  el: "body",
+  containerModal: "modal-container",
+  urlTemplate: STATICS_URL + "templates/sede_doctor.html",
+  handlebarsTemplateId: "sede-doctor-template",
+  context: {
+    titulo_modal: "Gestión de Doctores de la Sede",
+  },
+  closeFunction: function(){
+    location.replace(BASE_URL + "contenidos/#/sede");
+  },
+};
+
 var SedeDoctorView = ModalView.extend({
   initialize: function(options){
     // herencia de atributos, móetodos y eventos
@@ -36,15 +49,4 @@ var SedeDoctorView = ModalView.extend({
   cambiarSelect: function(event){
     this.tabla.cambiarSelect(event);
   },
-});
-
-var sedeDoctorView = new SedeDoctorView({
-  el: "body",
-  containerModal: "modal-container",
-  urlTemplate: STATICS_URL + "templates/sede_doctor.html",
-  handlebarsTemplateId: "sede-doctor-template",
-  context: {
-    titulo_modal: "Gestión de Doctores de la Sede",
-  },
-  closeFunction: function(){},
 });

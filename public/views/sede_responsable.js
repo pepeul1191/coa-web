@@ -1,3 +1,17 @@
+var dataSedeResponsableView = {
+  el: "body",
+  containerModal: "modal-container",
+  urlTemplate: STATICS_URL + "templates/sede_responsable.html",
+  handlebarsTemplateId: "sede-responsable-template",
+  targetMensaje: "mensajeRptaSedeResponsables",
+  context: {
+    titulo_modal: "Gestión de Responsables de la Sede",
+  },
+  closeFunction: function(){
+    location.replace(BASE_URL + "contenidos/#/sede");
+  },
+};
+
 var SedeResponsableView = ModalView.extend({
   initialize: function(options){
     this.targetMensaje = options["targetMensaje"];
@@ -102,16 +116,4 @@ var SedeResponsableView = ModalView.extend({
       }
     });
   },
-});
-
-var sedeResponsableView = new SedeResponsableView({
-  el: "body",
-  containerModal: "modal-container",
-  urlTemplate: STATICS_URL + "templates/sede_responsable.html",
-  handlebarsTemplateId: "sede-responsable-template",
-  targetMensaje: "mensajeRptaSedeResponsables",
-  context: {
-    titulo_modal: "Gestión de Responsables de la Sede",
-  },
-  closeFunction: function(){},
 });

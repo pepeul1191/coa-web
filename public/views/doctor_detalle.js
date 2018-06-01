@@ -1,3 +1,17 @@
+var dataDoctorDetalleView = {
+  el: "body",
+  containerModal: "modal-container",
+  urlTemplate: STATICS_URL + "templates/doctor_detalle.html",
+  handlebarsTemplateId: "doctor-detalle-template",
+  targetMensaje: "mensajeRptaDoctor",
+  context: {
+    titulo_modal: "Editar Doctor",
+  },
+  closeFunction: function(){
+     location.replace(BASE_URL + "contenidos/#/doctor");
+  },
+};
+
 var DoctorDetalleView = ModalView.extend({
   initialize: function(options){
     this.targetMensaje = options["targetMensaje"];
@@ -96,19 +110,5 @@ var DoctorDetalleView = ModalView.extend({
         console.log(error);
       }
     });
-  },
-});
-
-var doctorDetalleView = new DoctorDetalleView({
-  el: "body",
-  containerModal: "modal-container",
-  urlTemplate: STATICS_URL + "templates/doctor_detalle.html",
-  handlebarsTemplateId: "doctor-detalle-template",
-  targetMensaje: "mensajeRptaDoctor",
-  context: {
-    titulo_modal: "Editar Doctor",
-  },
-  closeFunction: function(){
-     //location.replace(BASE_URL + "contenidos/#/doctor");
   },
 });
